@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap');
+    *{
+      padding:0;
+      margin:0;
+      box-sizing: border-box;
+    }
+    :root{
+      --primary-blue:hsl(223, 87%, 63%);
+
+      --secondary-red:hsl(354, 100%, 66%);
+      --secondary-blue:hsl(223, 100%, 88%);
+
+      --neutral-gray:hsl(0, 0%, 59%);
+      --neutral-blue:hsl(209, 33%, 12%);
+
+      --font-size:20px;
+
+      --font-weight-light:300;
+      --font-weight-semi-bold:600;
+      --font-weight-bold:700;
+    }
+    .container{
+      margin-inline: auto;
+      width: min(90%,70rem);
+      text-align: center;
+    }
+    body{
+      height: 100vh;
+      font-family: 'Libre Franklin', sans-serif;
+    }
+    html{
+      font-size: 10px;
+    }
+    .logo{
+      text-transform: uppercase;
+      font-weight: var(--font-weight-bold);
+      font-size: 2rem;
+    }
+    .logo::after{
+      content:".";
+      color:var(--primary-blue);
+    }
+    .title{
+      font-weight: 300;
+      color:var(--neutral-gray);
+      font-size: 2rem;
+    }
+    .strong-text{
+      font-weight: 700;
+      color:#000;
+    }
+    .sub-title{
+      font-size: 1.2rem;
+    }
+    .email,.btn{
+      padding:1rem 2rem;
+      flex:1;
+      min-width: 25rem;
+      border-radius: 2.5rem;
+    }
+    .email{
+      border:1px solid var(--primary-blue);
+    }
+    .btn{
+      border:1px solid var(--primary-blue);
+      background-color: var(--primary-blue);
+      color:#fff;
+    }
+    .email::placeholder{
+      color:var(--neutral-gray);
+    }
+    img{
+      width: 90%;
+    }
+    .copyrights{
+      color:var(--neutral-gray);
+      margin-bottom:2rem;
+      font-size: 1.2rem;
+    }
+    .social-icon{
+      padding:1rem;
+      border:1px solid var(--primary-blue);
+      border-radius:2.5rem;
+    }
+    header{
+      height: 25vh;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: flex-end;
+    }
+    .newsletter{
+      display: flex;
+      flex-direction: column;
+      width: 75%;
+      gap:1rem;
+      margin-top:2rem;
+      align-items: center;
+    }
+    figure{
+      margin-top:8rem;
+    }
+    .footer{
+      margin-top:12rem;
+      display: flex;
+      gap:2rem;
+      flex-direction: column;
+    }
+    .socials{
+      display: flex;
+      gap:1rem;
+      justify-content: center;
+    }
+    .social-icon>ion-icon{
+      width: 2rem;
+      height: 2rem;
+      color:var(--primary-blue)
+    }
+    .social-icon:hover ion-icon{
+      color:#fff ;
+    }
+    .social-icon:hover{
+      background-color: var(--primary-blue);
+    }
+    @media only screen and (min-width:37.5rem){
+      .title{
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <h2 class="logo">ping</h2>
+    <h1 class="title">We are launching <span class="strong-text">soon!</span></h1>
+    <p class="sub-title">Subscribe and get notified</p>
+  </header>
+  <form class="newsletter container" >
+    <input type="text" class="email" name="email" placeholder="Your email address..." >
+    <p class="error"></p>
+    <button class="btn" type="submit" onclick="return validateForm()">Notify Me</button>
+  </form>
+  <section class="container">
+    <figure>
+      <img src="./images/illustration-dashboard.png" alt="dashboard" class="dashboard">
+    </figure>
+  </section>
+  <section class="footer container">
+    <div class="socials"><span class="social-icon"><ion-icon name="logo-facebook"></ion-icon></span><span class="social-icon"><ion-icon name="logo-twitter"></ion-icon></span><span class="social-icon"><ion-icon name="logo-instagram"></ion-icon></span></div>
+    <p class="copyrights">&copy; Copyright Ping. All rights reserved.</p>
+  </section>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.frontendmentor.io/profile/harshsinghatz">Harsh Singh</a>.
+    </p>
+  </footer>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <script>
+    const validateForm=function(event){
+      const email=document.querySelector('.email');
+      const error=document.querySelector('.error');
+      if(email.value=="" || !email.value.includes("@")){
+        error.textContent="Please provide a valid email address";
+        error.style.cssText="color:var(--secondary-red); font-style:italic;";
+        email.style.cssText="border:1px solid var(--secondary-red)";
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
